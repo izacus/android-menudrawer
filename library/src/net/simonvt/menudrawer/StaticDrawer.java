@@ -173,6 +173,15 @@ public abstract class StaticDrawer extends MenuDrawer {
     }
 
     @Override
+    public void setDrawMenuOverlay(boolean drawMenuOverlay) {
+    }
+
+    @Override
+    public boolean getDrawMenuOverlay() {
+        return false;
+    }
+
+    @Override
     public void peekDrawer() {
     }
 

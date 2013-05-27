@@ -808,6 +808,21 @@ public abstract class MenuDrawer extends ViewGroup {
      */
     public abstract boolean getOffsetMenuEnabled();
 
+    /**
+     * Enables or disables drawing the dark overlay over menu when dragging the drawer.
+     *
+     * @param drawMenuOverlay True to draw the overlay, false otherwise.
+     */
+    public abstract void setDrawMenuOverlay(boolean drawMenuOverlay);
+
+
+    /**
+     * Indicates whether the menu overlay is being drawn when dragging the drawer.
+     *
+     * @return True if the overlay is being drawn, false otherwise.
+     */
+    public abstract boolean getDrawMenuOverlay();
+
     public int getDrawerState() {
         return mDrawerState;
     }

@@ -145,6 +145,11 @@ public abstract class DraggableDrawer extends MenuDrawer {
     protected boolean mOffsetMenu = true;
 
     /**
+     * Indicated whether an overlay should be drawn over the menu when dragging the drawer.
+     */
+    protected boolean mDrawMenuOverlay = true;
+
+    /**
      * Distance in px from closed position from where the drawer is considered closed with regards to touch events.
      */
     protected int mCloseEnough;
@@ -226,6 +231,16 @@ public abstract class DraggableDrawer extends MenuDrawer {
 
     public boolean getOffsetMenuEnabled() {
         return mOffsetMenu;
+    }
+
+    @Override
+    public void setDrawMenuOverlay(boolean drawMenuOverlay) {
+        mDrawMenuOverlay = drawMenuOverlay;
+    }
+
+    @Override
+    public boolean getDrawMenuOverlay() {
+        return mDrawMenuOverlay;
     }
 
     public void peekDrawer() {
@@ -641,7 +656,7 @@ public abstract class DraggableDrawer extends MenuDrawer {
         super.dispatchDraw(canvas);
         final int offsetPixels = (int) mOffsetPixels;
 
-        if (offsetPixels != 0) drawMenuOverlay(canvas, offsetPixels);
+        if (mDrawMenuOverlay && offsetPixels != 0) drawMenuOverlay(canvas, offsetPixels);
         if (mDropShadowEnabled) drawDropShadow(canvas, offsetPixels);
         if (mActiveIndicator != null) drawIndicator(canvas, offsetPixels);
     }
